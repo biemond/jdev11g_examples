@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<j2ee:java-wsdl-mapping xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        version="1.1">
+  <j2ee:package-mapping>
+    <j2ee:package-type>nl.whitehorses.clientosb.jms</j2ee:package-type>
+    <j2ee:namespaceURI>http://saml.ws.whitehorses.nl/</j2ee:namespaceURI>
+  </j2ee:package-mapping>
+  <j2ee:service-interface-mapping>
+    <j2ee:service-interface>nl.whitehorses.clientosb.jms.HelloWorldServiceSoapHttpPortBindingQSService</j2ee:service-interface>
+    <j2ee:wsdl-service-name xmlns:saml="http://saml.ws.whitehorses.nl/">saml:HelloWorldServiceSoapHttpPortBindingQSService</j2ee:wsdl-service-name>
+    <j2ee:port-mapping>
+      <j2ee:port-name>HelloWorldServiceSoapHttpPortBindingQSPort</j2ee:port-name>
+      <j2ee:java-port-name>HelloWorldServiceSoapHttpPortBindingQSPort</j2ee:java-port-name>
+    </j2ee:port-mapping>
+  </j2ee:service-interface-mapping>
+  <j2ee:service-endpoint-interface-mapping>
+    <j2ee:service-endpoint-interface>nl.whitehorses.clientosb.jms.HelloWorldService</j2ee:service-endpoint-interface>
+    <j2ee:wsdl-port-type xmlns:saml="http://saml.ws.whitehorses.nl/">saml:HelloWorldService</j2ee:wsdl-port-type>
+    <j2ee:wsdl-binding xmlns:saml="http://saml.ws.whitehorses.nl/">saml:HelloWorldServiceSoapHttpPortBinding</j2ee:wsdl-binding>
+    <j2ee:service-endpoint-method-mapping>
+      <j2ee:java-method-name>sayHello</j2ee:java-method-name>
+      <j2ee:wsdl-operation>sayHello</j2ee:wsdl-operation>
+      <j2ee:wrapped-element></j2ee:wrapped-element>
+      <j2ee:wsdl-return-value-mapping>
+        <j2ee:method-return-value>java.lang.String</j2ee:method-return-value>
+        <j2ee:wsdl-message xmlns:saml="http://saml.ws.whitehorses.nl/">saml:sayHelloResponse</j2ee:wsdl-message>
+        <j2ee:wsdl-message-part-name>return</j2ee:wsdl-message-part-name>
+      </j2ee:wsdl-return-value-mapping>
+    </j2ee:service-endpoint-method-mapping>
+  </j2ee:service-endpoint-interface-mapping>
+</j2ee:java-wsdl-mapping>

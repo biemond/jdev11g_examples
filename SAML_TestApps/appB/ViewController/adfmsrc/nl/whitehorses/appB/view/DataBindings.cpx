@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.51.88" id="DataBindings" SeparateXMLFiles="false"
+             Package="nl.whitehorses.appB.view" ClientType="Generic">
+  <pageMap>
+    <page path="/aut/restricted.jspx"
+          usageId="nl_whitehorses_appB_view_restrictedPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="nl_whitehorses_appB_view_restrictedPageDef"
+          path="aut.restrictedPageDef"/>
+  </pageDefinitionUsages>
+</Application>

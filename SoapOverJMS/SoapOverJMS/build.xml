@@ -1,0 +1,53 @@
+<project name="webservices-hello_world" default="all">
+
+ <taskdef name="jwsc" classname="weblogic.wsee.tools.anttasks.JwscTask"/>
+
+ <target name="build-service">
+  <jwsc srcdir="src" destdir="deploy/helloWorldEar">
+   <jws file="nl/whitehorses/ws/jms/HelloWorld.java" type="JAXRPC"/>
+  </jwsc>
+ </target>
+
+ <taskdef name="wldeploy" classname="weblogic.ant.taskdefs.management.WLDeploy"/>
+
+
+ <property name="wls.username" value="weblogic"/>
+ <property name="wls.password" value="weblogic1"/>
+ <property name="wls.hostname" value="localhost"/>
+ <property name="wls.port" value="7101"/>
+ <property name="wls.server.name" value="DefaultServer"/>
+
+ <target name="deploy">
+  <wldeploy action="deploy" name="helloWorldEar" source="deploy/helloWorldEar"
+            user="${wls.username}" password="${wls.password}" verbose="true"
+            adminurl="t3://${wls.hostname}:${wls.port}"
+            targets="${wls.server.name}"/>
+ </target>
+
+ <taskdef name="clientgen" classname="weblogic.wsee.tools.anttasks.ClientGenTask"/>
+
+ <target name="client">
+  <clientgen wsdl="http://${wls.hostname}:${wls.port}/HelloWorldJMSService/HelloWorldJMSService?WSDL"
+             destdir="src" 
+             packagename="nl.whitehorses.client.jms"
+             type="JAXRPC"/>
+  <javac srcdir="src" 
+         destdir="classes"
+         includes="nl/whitehorses/client/jms/**/*.java"/>
+ </target>
+
+ <target name="clientOSB">
+  <clientgen wsdl="file:/c:/temp/jms/HelloworldNormal.wsdl"
+             destdir="src" 
+             packagename="nl.whitehorses.clientosb.jms"
+             type="JAXRPC"/>
+  <javac srcdir="src" 
+         destdir="classes"
+         includes="nl/whitehorses/clientosb/jms/**/*.java"/>
+ </target>
+
+</project>
+
+ 
+
+

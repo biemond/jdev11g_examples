@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<weblogic-wsee-standaloneclient xmlns="http://xmlns.oracle.com/weblogic/weblogic-wsee-standaloneclient" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-wsee-standaloneclient http://xmlns.oracle.com/weblogic/weblogic-wsee-standaloneclient/1.0/weblogic-wsee-standaloneclient.xsd">
+  <service-ref>
+    <j2ee:service-ref-name xmlns:j2ee="http://java.sun.com/xml/ns/j2ee">unused information</j2ee:service-ref-name>
+    <j2ee:service-interface xmlns:j2ee="http://java.sun.com/xml/ns/j2ee">nl.whitehorses.client.jms.HelloWorldJMSService</j2ee:service-interface>
+    <j2ee:wsdl-file xmlns:j2ee="http://java.sun.com/xml/ns/j2ee">nl/whitehorses/client/jms/HelloWorldJMSService_saved_wsdl.wsdl</j2ee:wsdl-file>
+    <j2ee:jaxrpc-mapping-file xmlns:j2ee="http://java.sun.com/xml/ns/j2ee">nl/whitehorses/client/jms/HelloWorldJMSService_java_wsdl_mapping.xml</j2ee:jaxrpc-mapping-file>
+    <j2ee:service-qname xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:jms="http://nl/whitehorses/ws/jms">jms:HelloWorldJMSService</j2ee:service-qname>
+  </service-ref>
+</weblogic-wsee-standaloneclient>

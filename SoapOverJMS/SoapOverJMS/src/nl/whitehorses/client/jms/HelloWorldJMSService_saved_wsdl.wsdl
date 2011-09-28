@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WL5G3N0:definitions name="HelloWorldJMSServiceDefinitions" targetNamespace="http://nl/whitehorses/ws/jms" xmlns="" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://nl/whitehorses/ws/jms" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://nl/whitehorses/ws/jms" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://nl/whitehorses/ws/jms" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="sayHello">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sayHelloResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="result" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="sayHello">
+    <WL5G3N0:part element="WL5G3N1:sayHello" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="sayHelloResponse">
+    <WL5G3N0:part element="WL5G3N1:sayHelloResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="HelloWorld">
+    <WL5G3N0:operation name="sayHello" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:sayHello"/>
+      <WL5G3N0:output message="WL5G3N1:sayHelloResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="HelloWorldJMSServiceSoapBinding" type="WL5G3N1:HelloWorld">
+    <WL5G3N2:binding style="document" transport="http://www.openuri.org/2002/04/soap/jms/"/>
+    <WL5G3N0:operation name="sayHello">
+      <WL5G3N2:operation style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body parts="parameters" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body parts="parameters" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="HelloWorldJMSService">
+    <WL5G3N0:port binding="WL5G3N1:HelloWorldJMSServiceSoapBinding" name="HelloWorldJMSPort">
+      <WL5G3N2:address location="jms://192.168.56.1:7101/HelloWorldJMSService/HelloWorldJMSService?URI=jms.SoapQueue&amp;FACTORY=jms.CF"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

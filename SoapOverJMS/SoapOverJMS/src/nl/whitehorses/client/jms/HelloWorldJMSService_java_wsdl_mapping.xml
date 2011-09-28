@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<j2ee:java-wsdl-mapping xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        version="1.1">
+  <j2ee:package-mapping>
+    <j2ee:package-type>nl.whitehorses.client.jms</j2ee:package-type>
+    <j2ee:namespaceURI>http://nl/whitehorses/ws/jms</j2ee:namespaceURI>
+  </j2ee:package-mapping>
+  <j2ee:service-interface-mapping>
+    <j2ee:service-interface>nl.whitehorses.client.jms.HelloWorldJMSService</j2ee:service-interface>
+    <j2ee:wsdl-service-name xmlns:jms="http://nl/whitehorses/ws/jms">jms:HelloWorldJMSService</j2ee:wsdl-service-name>
+    <j2ee:port-mapping>
+      <j2ee:port-name>HelloWorldJMSPort</j2ee:port-name>
+      <j2ee:java-port-name>HelloWorldJMSPort</j2ee:java-port-name>
+    </j2ee:port-mapping>
+  </j2ee:service-interface-mapping>
+  <j2ee:service-endpoint-interface-mapping>
+    <j2ee:service-endpoint-interface>nl.whitehorses.client.jms.HelloWorld</j2ee:service-endpoint-interface>
+    <j2ee:wsdl-port-type xmlns:jms="http://nl/whitehorses/ws/jms">jms:HelloWorld</j2ee:wsdl-port-type>
+    <j2ee:wsdl-binding xmlns:jms="http://nl/whitehorses/ws/jms">jms:HelloWorldJMSServiceSoapBinding</j2ee:wsdl-binding>
+    <j2ee:service-endpoint-method-mapping>
+      <j2ee:java-method-name>sayHello</j2ee:java-method-name>
+      <j2ee:wsdl-operation>sayHello</j2ee:wsdl-operation>
+      <j2ee:wrapped-element></j2ee:wrapped-element>
+      <j2ee:method-param-parts-mapping>
+        <j2ee:param-position>0</j2ee:param-position>
+        <j2ee:param-type>java.lang.String</j2ee:param-type>
+        <j2ee:wsdl-message-mapping>
+          <j2ee:wsdl-message xmlns:jms="http://nl/whitehorses/ws/jms">jms:sayHello</j2ee:wsdl-message>
+          <j2ee:wsdl-message-part-name>message</j2ee:wsdl-message-part-name>
+          <j2ee:parameter-mode>IN</j2ee:parameter-mode>
+        </j2ee:wsdl-message-mapping>
+      </j2ee:method-param-parts-mapping>
+      <j2ee:wsdl-return-value-mapping>
+        <j2ee:method-return-value>java.lang.String</j2ee:method-return-value>
+        <j2ee:wsdl-message xmlns:jms="http://nl/whitehorses/ws/jms">jms:sayHelloResponse</j2ee:wsdl-message>
+        <j2ee:wsdl-message-part-name>result</j2ee:wsdl-message-part-name>
+      </j2ee:wsdl-return-value-mapping>
+    </j2ee:service-endpoint-method-mapping>
+  </j2ee:service-endpoint-interface-mapping>
+</j2ee:java-wsdl-mapping>

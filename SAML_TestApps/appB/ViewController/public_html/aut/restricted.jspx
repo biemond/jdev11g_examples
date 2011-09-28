@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelFormLayout id="pfl1">
+          <af:outputText value="Restricted Page" id="ot1"/>
+          <af:inputText label="User" id="it1" readOnly="true"
+                        value="#{Security.userName}" columns="60"/>
+          <af:inputText label="Roles" id="it2" readOnly="true"
+                        value="#{Security.roles}" columns="60"/>
+          <af:inputText label="Attributes" id="it3" readOnly="true"
+                        value="#{Security.attributes}" columns="60"/>
+        </af:panelFormLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

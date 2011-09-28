@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <Page
+      id="Page2">
+      <property
+         name="wildcard">false</property>
+      <property
+         name="y">228.5</property>
+      <property
+         name="x">207.6875</property>
+      <property
+         name="jspName">/appBStart.jspx</property>
+      <property
+         name="realized">true</property>
+   </Page>
+   <Page
+      id="Page3">
+      <property
+         name="wildcard">false</property>
+      <property
+         name="y">229.5</property>
+      <property
+         name="x">539.68555</property>
+      <property
+         name="jspName">/aut/restricted.jspx</property>
+      <property
+         name="realized">true</property>
+   </Page>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase4"
+      from="Page2"
+      to="Page3">
+      <property
+         name="fromOutcome">res</property>
+      <property
+         name="description">&lt;html>&lt;p align="left" style="font-family:Tahoma;font-size:14pt">Navigation Case&lt;/p>&lt;/html></property>
+      <property
+         name="label">success</property>
+      <property
+         name="rawDescription">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">R50,248.6875,228.14941,498.68555,229.14941,L50</property>
+   </NavigationCase>
+</SDM>

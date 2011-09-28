@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jazn-data>
+   <jazn-realm default="jazn.com">
+      <realm>
+         <name>myrealm</name>
+         <roles>
+            <role>
+               <name>administrator</name>
+               <guid>85EC4A913CEB11DEAF3709F3BCE134BA</guid>
+            </role>
+            <role>
+               <name>user</name>
+               <guid>85EC4A923CEB11DEAF3709F3BCE134BA</guid>
+            </role>
+         </roles>
+      </realm>
+      <realm>
+         <name>jazn.com</name>
+      </realm>
+   </jazn-realm>
+   <policy-store>
+      <applications>
+         <application>
+            <name>appB</name>
+            <jazn-policy>
+               <grant>
+                  <grantee>
+                     <principals>
+                        <principal>
+                           <class>oracle.security.jps.internal.core.principals.JpsAuthenticatedRoleImpl</class>
+                           <name>authenticated-role</name>
+                        </principal>
+                     </principals>
+                  </grantee>
+                  <permissions>
+                     <permission>
+                        <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                        <name>aut.restrictedPageDef</name>
+                        <actions>view</actions>
+                     </permission>
+                  </permissions>
+               </grant>
+            </jazn-policy>
+         </application>
+      </applications>
+   </policy-store>
+   <jazn-policy/>
+</jazn-data>
