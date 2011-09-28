@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">cdc5e5fb-73f8-43ca-893d-ff67a4610a9f</identifier>
+  </ID>
+  <name>LIBRADBA</name>
+</schema>

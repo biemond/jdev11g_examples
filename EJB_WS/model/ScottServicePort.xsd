@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:tns="http://nl.amis.hr.entities"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+           targetNamespace="http://nl.amis.hr.entities">
+  <xs:element name="getDepartmentRequest" type="tns:getDeptFindByPK"/>
+  <xs:element name="getDepartmentResponse"
+              type="tns:getDeptFindByPKResponse"/>
+  <xs:element name="getEmployeeRequest" type="tns:getEmpFindByID"/>
+  <xs:element name="getEmployeeResponse" type="tns:getEmpFindByIDResponse"/>
+  <xs:complexType name="getDeptFindByPK">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDeptFindByPKResponse">
+    <xs:sequence>
+      <xs:element name="department" type="tns:department" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="department">
+    <xs:sequence>
+      <xs:element name="departmentNr" type="xs:long" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="employees" type="tns:employee" nillable="true" minOccurs="0"
+                  maxOccurs="unbounded"/>
+      <xs:element name="location" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="employee">
+    <xs:sequence>
+      <xs:element name="commission" type="xs:double" minOccurs="0"/>
+      <xs:element name="employeeNr" type="xs:long" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="hiredate" type="xs:date" minOccurs="0"/>
+      <xs:element name="job" type="xs:string" minOccurs="0"/>
+      <xs:element name="manager" type="xs:long" minOccurs="0"/>
+      <xs:element name="salary" type="xs:double" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpFindByID">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getEmpFindByIDResponse">
+    <xs:sequence>
+      <xs:element name="employee" type="tns:employee" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

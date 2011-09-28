@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebService xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webservice">
+   <list n="CHILD_NODES">
+      <url path="../../../../ScottService4.wsdl"/>
+      <url path="../types/Employee.java"/>
+      <url path="../types/GetDeptFindByPK.java"/>
+      <url path="../types/GetEmpFindByIDResponse.java"/>
+      <url path="../types/ObjectFactory.java"/>
+      <url path="../types/GetEmpFindByID.java"/>
+      <url path="../types/package-info.java"/>
+      <url path="ScottService4.java"/>
+      <url path="../types/GetDeptFindByPKResponse.java"/>
+      <url path="../types/Department.java"/>
+      <url path="ScottService4Impl.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MTOM"/>
+      <list n="BD_">
+         <hash>
+            <value n="BOUND_PORT_TYPE" v="{http://nl.amis.hr.service}ScottService4"/>
+            <value n="DEFAULT_NAME" v="false"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+            <value n="NAME" v="{http://nl.amis.hr.service}ScottServicePortBinding"/>
+            <list n="OP_BINDINGS">
+               <hash>
+                  <value n="BD_DOCUMENT_WRAPPED" v="false"/>
+                  <value n="BD_RESPONSE_PART" v="parameters"/>
+                  <value n="BD_SOAP_ACTION" v=""/>
+                  <value n="BD_WSDL_RETURN_NAME" v="getDepartmentResponse"/>
+                  <value n="BD_WSDL_RETURN_TNS" v="http://nl.amis.hr.entities"/>
+                  <value n="BOUND_OPERATION" v="nl.amis.model4.types.GetDeptFindByPKResponse.getDepartment.nl.amis.model4.types.GetDeptFindByPK"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash>
+                  <value n="BD_DOCUMENT_WRAPPED" v="false"/>
+                  <value n="BD_RESPONSE_PART" v="parameters"/>
+                  <value n="BD_SOAP_ACTION" v=""/>
+                  <value n="BD_WSDL_RETURN_NAME" v="getEmployeeResponse"/>
+                  <value n="BD_WSDL_RETURN_TNS" v="http://nl.amis.hr.entities"/>
+                  <value n="BOUND_OPERATION" v="nl.amis.model4.types.GetEmpFindByIDResponse.getEmployee.nl.amis.model4.types.GetEmpFindByID"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </list>
+            <hash n="PROPERTY_GROUPS"/>
+         </hash>
+      </list>
+      <list n="BINDING_FILES"/>
+      <list n="GENERATED_FILES"/>
+      <value n="GENERATION_OPTION" v="ANNOTATIONS_WSDL_SEI"/>
+      <value n="GUID" v="c4ae4580-0131-1000-8019-0a0a0a0e67e9"/>
+      <list n="LOCAL_FILES"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.EJB30WebService"/>
+      <list n="PO_">
+         <hash>
+            <value n="DEFAULT_NAME" v="false"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+            <value n="NAME" v="ScottServicePort4"/>
+            <value n="PORT_BINDING_NAME" v="{http://nl.amis.hr.service}ScottServicePortBinding"/>
+            <list n="PORT_OPS">
+               <hash>
+                  <value n="EXPOSED_BD_OPERATION" v="nl.amis.model4.types.GetDeptFindByPKResponse.getDepartment.nl.amis.model4.types.GetDeptFindByPK"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash>
+                  <value n="EXPOSED_BD_OPERATION" v="nl.amis.model4.types.GetEmpFindByIDResponse.getEmployee.nl.amis.model4.types.GetEmpFindByID"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </list>
+            <hash n="PROPERTY_GROUPS"/>
+            <url n="URL" protocol="http" host="localhost" port="7101" path="/EJB-model-context-root/ScottServicePort4"/>
+         </hash>
+      </list>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="ADD_ANNOTATIONS">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.AnnotationProperties"/>
+         </hash>
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="nl.amis.model4.ws"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="nl.amis.model4.types"/>
+         </hash>
+      </hash>
+      <list n="PT_">
+         <hash>
+            <value n="AUTO_SERVICE_INTERFACE"/>
+            <value n="DEFAULT_NAME" v="false"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.EJB30PortType"/>
+            <value n="NAME" v="{http://nl.amis.hr.service}ScottService4"/>
+            <list n="OP_">
+               <hash>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaOperation"/>
+                  <value n="OP_JAVA_NAME" v="getDepartment"/>
+                  <list n="OP_JAVA_PARAMETERS">
+                     <hash>
+                        <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaParameter"/>
+                        <value n="NAME" v="parameters"/>
+                        <value n="PA_MODE" v="0"/>
+                        <value n="PA_WSDL_NAME" v="getDepartmentRequest"/>
+                        <value n="PA_WSDL_PART_NAME" v="parameters"/>
+                        <value n="TARGET_NAMESPACE" v="http://nl.amis.hr.entities"/>
+                        <value n="TYPE" v="nl.amis.model4.types.GetDeptFindByPK"/>
+                     </hash>
+                  </list>
+                  <value n="OP_JAVA_RETURN_TYPE" v="nl.amis.model4.types.GetDeptFindByPKResponse"/>
+                  <value n="OP_NAME" v="getDepartment"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaOperation"/>
+                  <value n="OP_JAVA_NAME" v="getEmployee"/>
+                  <list n="OP_JAVA_PARAMETERS">
+                     <hash>
+                        <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaParameter"/>
+                        <value n="NAME" v="parameters"/>
+                        <value n="PA_MODE" v="0"/>
+                        <value n="PA_WSDL_NAME" v="getEmployeeRequest"/>
+                        <value n="PA_WSDL_PART_NAME" v="parameters"/>
+                        <value n="TARGET_NAMESPACE" v="http://nl.amis.hr.entities"/>
+                        <value n="TYPE" v="nl.amis.model4.types.GetEmpFindByID"/>
+                     </hash>
+                  </list>
+                  <value n="OP_JAVA_RETURN_TYPE" v="nl.amis.model4.types.GetEmpFindByIDResponse"/>
+                  <value n="OP_NAME" v="getEmployee"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </list>
+            <hash n="PROPERTY_GROUPS"/>
+            <value n="PT_CLASS" v="nl.amis.model4.ws.ScottService4Impl"/>
+            <value n="PT_EJB_ID" v="file:/C:/projects/EJB/model/src/nl/amis/model4/ws/ScottService4Impl.java"/>
+            <value n="PT_SERVICE_INTERFACE" v="nl.amis.model4.ws.ScottService4"/>
+         </hash>
+      </list>
+      <value n="SERVICE_ASYNC" v="false"/>
+      <url n="TARGET_PROJECT" path="../../../../../model.jpr"/>
+      <value n="TOPDOWN_GENERATION_OPTION" v="EJB30_SEI"/>
+      <value n="WS_DEFAULT_PORT_TYPE_CLASS" v="oracle.jdeveloper.webservices.model.java.EJB30PortType"/>
+      <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+      <url n="WS_REFERENCE_WSDL" path="../../../../ScottService4.wsdl"/>
+      <value n="WS_TARGET_NAMESPACE" v="http://nl.amis.hr.service"/>
+      <value n="WS_URI" v="ScottService4"/>
+      <url n="WS_WSDL_FILE" path="../../../../ScottService4.wsdl"/>
+      <value n="WS_WSDL_LOCATION" v="/C:/projects/EJB/model/src/"/>
+      <list n="WSDL_DEPENDENT_FILES">
+         <url path="../../../../ScottServicePort.xsd"/>
+      </list>
+   </hash>
+</jdevws:WebService>

@@ -1,0 +1,63 @@
+<definitions
+     name="ScottService2"
+     targetNamespace="http://nl.amis.hr.service"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns2="http://nl.amis.hr.service"
+     xmlns:tns="http://nl.amis.hr.entities"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://nl.amis.hr.entities" schemaLocation="ScottServicePort.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="getDepartmentRequest">
+        <part name="parameters" element="tns:getDepartmentRequest"/>
+    </message>
+    <message name="getDepartmentResponse">
+        <part name="parameters" element="tns:getDepartmentResponse"/>
+    </message>
+    <message name="getEmployeeRequest">
+        <part name="parameters" element="tns:getEmployeeRequest"/>
+    </message>
+    <message name="getEmployeeResponse">
+        <part name="parameters" element="tns:getEmployeeResponse"/>
+    </message>
+    <portType name="ScottService2">
+        <operation name="getDepartment">
+            <input message="tns2:getDepartmentRequest"/>
+            <output message="tns2:getDepartmentResponse"/>
+        </operation>
+        <operation name="getEmployee">
+            <input message="tns2:getEmployeeRequest"/>
+            <output message="tns2:getEmployeeResponse"/>
+        </operation>
+    </portType>
+    <binding name="ScottServicePortBinding" type="tns2:ScottService2">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getDepartment">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="getEmployee">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="ScottService2">
+        <port name="ScottServicePort2" binding="tns2:ScottServicePortBinding">
+         <soap:address location="http://localhost:7101/EJB-model-context-root/ScottServicePort2" /> 
+        </port>
+    </service>
+</definitions>
