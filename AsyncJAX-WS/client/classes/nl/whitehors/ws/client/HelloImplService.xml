@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns2="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname localpart="HelloImplService"
+                     namespaceURI="http://ws.whitehorses.nl/"/>
+      <port-info>
+         <wsdl-port localpart="HelloImplPort"
+                    namespaceURI="http://ws.whitehorses.nl/"/>
+         <runtime/>
+         <operations>
+            <operation name="sayHello"/>
+            <operation name="callbackMessage"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>
