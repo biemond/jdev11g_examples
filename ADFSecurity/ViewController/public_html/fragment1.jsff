@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+   <af:panelStretchLayout id="psl1">
+      <f:facet name="center">
+         <af:panelGroupLayout layout="horizontal"
+                              xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                              id="pgl1" valign="top">
+            <af:panelHeader text="User information" id="ph1">
+               <af:panelFormLayout id="pfl1">
+                  <af:inputText label="Username" id="it1" columns="100"
+                                value="#{OpssBean.username}" readOnly="true"/>
+                  <af:inputText label="Roles" id="it2" columns="100"
+                                value="#{OpssBean.roles}" readOnly="true"/>
+                  <af:inputText label="Attributes" id="it3" columns="100"
+                                rows="20" value="#{OpssBean.attributes}"
+                                readOnly="true"/>
+               </af:panelFormLayout>
+            </af:panelHeader>
+            <af:panelGroupLayout id="pgl2" layout="vertical">
+               <af:panelHeader text="Create Role" id="ph3">
+                  <f:facet name="context">
+                     <af:commandButton text="Create" id="cb2"
+                                       actionListener="#{OpssBean.createRole}"/>
+                  </f:facet>
+                  <af:panelFormLayout id="pfl3">
+                     <af:inputText label="New Roles" id="it8"
+                                   value="#{OpssBean.createRole}" columns="30"
+                                   autoSubmit="true"/>
+                  </af:panelFormLayout>
+               </af:panelHeader>
+               <af:panelHeader text="Create User" id="ph4">
+                  <f:facet name="context">
+                     <af:commandButton text="Create" id="cb3"
+                                       actionListener="#{OpssBean.createUser}"/>
+                  </f:facet>
+                  <af:panelFormLayout id="pfl4">
+                     <af:inputText label="New User" id="it9"
+                                   value="#{OpssBean.createUser}" columns="30"/>
+                     <af:inputText label="Password" id="it10"
+                                   value="#{OpssBean.createUserPassword}" columns="30"/>
+                     <af:inputText label="Existing Roles" id="it11"
+                                   value="#{OpssBean.createUserRole}" columns="30"/>
+                  </af:panelFormLayout>
+               </af:panelHeader>
+               <af:panelHeader text="Search User" id="ph5">
+                  <f:facet name="context">
+                     <af:commandButton text="Search" id="cb4"
+                                       actionListener="#{OpssBean.searchUser}"/>
+                  </f:facet>
+                  <af:panelFormLayout id="pfl5">
+                     <af:inputText label="Search User" id="it12"
+                                   value="#{OpssBean.searchUser}" columns="30"
+                                   autoSubmit="true"/>
+                     <af:inputText label="Password" id="it13"
+                                   value="#{OpssBean.searchUserResult}" columns="30"
+                                   rows="3" partialTriggers="cb4"/>
+                  </af:panelFormLayout>
+               </af:panelHeader>
+
+               <af:panelHeader text="Retrieve password" id="ph2">
+                  <af:panelFormLayout id="pfl2">
+                     <af:inputText label="Key" id="it4" value="#{OpssBean.key}"
+                                   autoSubmit="true"/>
+                     <af:inputText label="Map" id="it5" value="#{OpssBean.map}"
+                                   autoSubmit="true"/>
+                     <af:inputText label="Username" id="it6"
+                                   value="#{OpssBean.keyUsername}"
+                                   partialTriggers="cb1" readOnly="true"/>
+                     <af:inputText label="Password" id="it7"
+                                   value="#{OpssBean.keyPassword}"
+                                   partialTriggers="cb1" readOnly="true"/>
+                  </af:panelFormLayout>
+                  <f:facet name="context">
+                     <af:commandButton text="Retrieve" id="cb1"
+                                       actionListener="#{OpssBean.retrievePassword}"/>
+                  </f:facet>
+               </af:panelHeader>
+            </af:panelGroupLayout>
+         </af:panelGroupLayout>
+      </f:facet>
+   </af:panelStretchLayout>
+</jsp:root>

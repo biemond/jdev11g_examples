@@ -1,0 +1,252 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="Kerberos" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://soaps3.alfa.local:6001/Kerberos-KerberosHelloWS-context-root/HelloServicePort?WSDL" service="{http://ws.kerberos.owsm.amis.nl/}HelloServiceService">
+                  <model name="{http://ws.kerberos.owsm.amis.nl/}HelloServiceService" xmlns="http://oracle.com/ws/model">
+                     <types xmlns="http://oracle.com/oracle/webservices/mdds">
+                        <complexType elementQualified="false" namespace="http://ws.kerberos.owsm.amis.nl/" localPart="sayHelloResponse" prefix="tns" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="return" required="false" namespace="http://ws.kerberos.owsm.amis.nl/" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="false" namespace="http://ws.kerberos.owsm.amis.nl/" localPart="sayHello" prefix="tns" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="arg0" required="false" namespace="http://ws.kerberos.owsm.amis.nl/" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="arg1" required="false" namespace="http://ws.kerberos.owsm.amis.nl/" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <types-in-elements/>
+                     </types>
+                     <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="HelloServicePort_Fault_Policy"/>
+                     <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="HelloServicePort_Input_Policy">
+<sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<sp:Body/>
+<sp:Header Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+<sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<sp:Body/>
+<sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0"/>
+</sp:EncryptedParts>
+</wsp:Policy>
+                     <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="HelloServicePort_Output_Policy">
+<sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<sp:Body/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:Policy>
+                     <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" orawsp:provides="{http://docs.oasis-open.org/ns/opencsa/sca/200903}authentication, {http://docs.oasis-open.org/ns/opencsa/sca/200903}clientAuthentication, {http://docs.oasis-open.org/ns/opencsa/sca/200903}clientAuthentication.message, {http://schemas.oracle.com/ws/2006/01/policy}token.kerberos, {http://docs.oasis-open.org/ns/opencsa/sca/200903}integrity, {http://docs.oasis-open.org/ns/opencsa/sca/200903}integrity.message, {http://docs.oasis-open.org/ns/opencsa/sca/200903}confidentiality, {http://docs.oasis-open.org/ns/opencsa/sca/200903}confidentiality.message, {http://schemas.oracle.com/ws/2006/01/policy}messageProtection" wsu:Id="wss11_kerberos_token_with_message_protection_basic128_service_policy">
+<sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<wsp:Policy>
+<sp:ProtectionToken>
+<wsp:Policy>
+<sp:KerberosToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Once">
+<wsp:Policy>
+<sp:WssGssKerberosV5ApReqToken11/>
+</wsp:Policy>
+</sp:KerberosToken>
+</wsp:Policy>
+</sp:ProtectionToken>
+<sp:AlgorithmSuite>
+<wsp:Policy>
+<sp:Basic128/>
+</wsp:Policy>
+</sp:AlgorithmSuite>
+<sp:Layout>
+<wsp:Policy>
+<sp:Strict/>
+</wsp:Policy>
+</sp:Layout>
+<sp:IncludeTimestamp/>
+<sp:OnlySignEntireHeadersAndBody/>
+</wsp:Policy>
+</sp:SymmetricBinding>
+<sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<wsp:Policy>
+<sp:MustSupportRefKeyIdentifier/>
+<sp:MustSupportRefEncryptedKey/>
+</wsp:Policy>
+</sp:Wss11>
+</wsp:Policy>
+                     <service name="{http://ws.kerberos.owsm.amis.nl/}HelloServiceService">
+                        <port name="HelloServicePort" binding="{http://ws.kerberos.owsm.amis.nl/}HelloServicePortBinding" portType="{http://ws.kerberos.owsm.amis.nl/}HelloService">
+                           <soap addressUrl="http://soaps3.alfa.local:6001/Kerberos-KerberosHelloWS-context-root/HelloServicePort" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#wss11_kerberos_token_with_message_protection_basic128_service_policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:required="false"/>
+                           <operation name="sayHello">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://ws.kerberos.owsm.amis.nl/}sayHello">
+                                 <message style="2" use="1" soapVersion="1" encodingStyle="" docLitWrapped="true" namespace="http://ws.kerberos.owsm.amis.nl/" localPart="sayHello" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="parameters" required="true" xmlns="">
+                                       <type namespace="http://ws.kerberos.owsm.amis.nl/" localPart="sayHello" prefix="tns"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://ws.kerberos.owsm.amis.nl/}sayHelloResponse">
+                                 <message style="2" use="1" soapVersion="1" encodingStyle="" docLitWrapped="true" namespace="http://ws.kerberos.owsm.amis.nl/" localPart="sayHelloResponse" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="parameters" required="true" xmlns="">
+                                       <type namespace="http://ws.kerberos.owsm.amis.nl/" localPart="sayHelloResponse" prefix="tns"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="CustomerManagement" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://SOAPS3.alfa.local:8001/soa-infra/services/default/CustomerManagement/customermanagementsync_client_ep?WSDL" service="{http://xmlns.oracle.com/osb_cookbook/CustomerManagement/CustomerManagementSync}customermanagementsync_client_ep">
+                  <model name="{http://xmlns.oracle.com/osb_cookbook/CustomerManagement/CustomerManagementSync}CustomerManagementSync" xmlns="http://oracle.com/ws/model">
+                     <types xmlns="http://oracle.com/oracle/webservices/mdds">
+                        <enumeration namespace="http://osb-cookbook/creditcard" localPart="CardIssuerTyp" xsdType="string" xmlns="">
+                           <value value="visa"/>
+                           <value value="amexco"/>
+                           <value value="mastercard"/>
+                        </enumeration>
+                        <complexType elementQualified="true" namespace="http://osb-cookbook/customer" localPart="AddressTyp" prefix="tns" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="Street" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="PostalCode" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="City" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="Country" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://osb-cookbook/customer" localPart="CustomerTyp" prefix="tns" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="ID" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="long"/>
+                              </part>
+                              <part name="FirstName" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="LastName" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="EmailAddress" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="Addresses" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://osb-cookbook/customer" localPart="AddressesTyp" prefix="tns"/>
+                              </part>
+                              <part name="BirthDate" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="date"/>
+                              </part>
+                              <part name="Rating" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://osb-cookbook/customer" localPart="RatingTyp"/>
+                              </part>
+                              <part name="Gender" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="CreditCard" required="true" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <type namespace="http://osb-cookbook/creditcard" localPart="CreditCardTyp" prefix="tns"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://osb-cookbook/customer" localPart="AddressesTyp" prefix="tns" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="Address" required="false" namespace="http://osb-cookbook/customer" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://osb-cookbook/customer" localPart="AddressTyp" prefix="tns"/>
+                                 </array>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://osb-cookbook/creditcard" localPart="CreditCardTyp" prefix="tns" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="CardIssuer" required="true" namespace="http://osb-cookbook/creditcard" elementQualified="true">
+                                 <type namespace="http://osb-cookbook/creditcard" localPart="CardIssuerTyp"/>
+                              </part>
+                              <part name="CardNumber" required="true" namespace="http://osb-cookbook/creditcard" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="CardholderName" required="true" namespace="http://osb-cookbook/creditcard" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="ExpirationDate" required="true" namespace="http://osb-cookbook/creditcard" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="CardValidationCode" required="true" namespace="http://osb-cookbook/creditcard" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="long"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <enumeration namespace="http://osb-cookbook/customer" localPart="RatingTyp" xsdType="string" xmlns="">
+                           <value value="A"/>
+                           <value value="AA"/>
+                           <value value="AAA"/>
+                        </enumeration>
+                        <types-in-elements/>
+                     </types>
+                     <service name="{http://xmlns.oracle.com/osb_cookbook/CustomerManagement/CustomerManagementSync}customermanagementsync_client_ep">
+                        <port name="CustomerManagementSync_pt" binding="{http://xmlns.oracle.com/osb_cookbook/CustomerManagement/CustomerManagementSync}CustomerManagementSyncBinding" portType="{http://xmlns.oracle.com/osb_cookbook/CustomerManagement/CustomerManagementSync}CustomerManagementSync">
+                           <soap addressUrl="http://soaps3.alfa.local:8001/soa-infra/services/default/CustomerManagement/customermanagementsync_client_ep" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="process">
+                              <soap soapAction="process" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://xmlns.oracle.com/osb_cookbook/CustomerManagement/CustomerManagementSync}CustomerManagementSyncRequestMessage">
+                                 <message style="2" use="1" soapVersion="1" encodingStyle="" docLitWrapped="false" namespace="http://osb-cookbook/CustomerManagement" localPart="FindCustomer" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="payload" required="true" xmlns="">
+                                       <type>
+                                          <complexType elementQualified="true">
+                                             <sequence minOccurs="1" maxOccurs="1">
+                                                <part name="ID" required="true" namespace="http://osb-cookbook/CustomerManagement" elementQualified="true">
+                                                   <type namespace="http://www.w3.org/2001/XMLSchema" localPart="long"/>
+                                                </part>
+                                             </sequence>
+                                          </complexType>
+                                       </type>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://xmlns.oracle.com/osb_cookbook/CustomerManagement/CustomerManagementSync}CustomerManagementSyncResponseMessage">
+                                 <message style="2" use="1" soapVersion="1" encodingStyle="" docLitWrapped="true" namespace="http://osb-cookbook/CustomerManagement" localPart="FindCustomerResponse" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="payload" required="true" xmlns="">
+                                       <type>
+                                          <complexType elementQualified="true">
+                                             <sequence minOccurs="1" maxOccurs="1">
+                                                <part name="Customer" required="true" namespace="http://osb-cookbook/CustomerManagement" elementQualified="true">
+                                                   <type namespace="http://osb-cookbook/customer" localPart="CustomerTyp" prefix="tns"/>
+                                                </part>
+                                             </sequence>
+                                          </complexType>
+                                       </type>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

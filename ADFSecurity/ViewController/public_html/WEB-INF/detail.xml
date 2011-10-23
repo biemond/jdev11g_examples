@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="detail">
+    <default-activity id="__1">fragment1</default-activity>
+    <managed-bean id="__12">
+      <managed-bean-name id="__13">OpssBean</managed-bean-name>
+      <managed-bean-class id="__14">nl.amis.security.opss.OpssBean</managed-bean-class>
+      <managed-bean-scope id="__15">request</managed-bean-scope>
+    </managed-bean>
+    <view id="fragment1">
+      <page>/fragment1.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
