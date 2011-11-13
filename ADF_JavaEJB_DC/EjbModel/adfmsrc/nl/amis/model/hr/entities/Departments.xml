@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.59.23"
+          id="Departments" Package="nl.amis.model.hr.entities"
+          BeanClass="nl.amis.model.hr.entities.Departments" isJavaBased="true">
+  <Attribute Name="departmentId" PrimaryKey="true" Type="java.lang.Long"/>
+  <Attribute Name="departmentName" Type="java.lang.String"/>
+  <Attribute Name="locationId" Type="java.lang.Long"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="nl.amis.model.hr.entities.Departments"
+                     BeanClass="nl.amis.model.hr.entities.Departments"
+                     id="Departments"/>
+</JavaBean>

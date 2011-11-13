@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.59.23" id="DataControls"
+                    Package="nl.amis.model.hr">
+  <AdapterDataControl id="HRSessionLocal"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adfinternal.model.adapter.ejb.EjbDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="nl.amis.model.hr.service.HRSessionLocal"
+                      BeanClass="nl.amis.model.hr.service.HRSessionLocal"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="nl.amis.model.hr.entities.Departments"/>
+      <TypeInfo FullName="nl.amis.model.hr.entities.Employees"/>
+      <TypeInfo FullName="nl.amis.model.hr.entities.Locations"/>
+    </CreatableTypes>
+    <Source>
+      <ejb-definition ejb-version="3.0" ejb-name="HRSessionBean"
+                      ejb-type="Session"
+                      ejb-business-interface="nl.amis.model.hr.service.HRSessionLocal"
+                      ejb-interface-type="local"
+                      initial-context-factory="weblogic.jndi.WLInitialContextFactory"
+                      DataControlHandler="oracle.adf.model.adapter.bean.jpa.JPQLDataFilterHandler"
+                      xmlns="http://xmlns.oracle.com/adfm/adapter/ejb"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

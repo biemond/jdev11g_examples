@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.59.23" id="employeePageDef" Package="pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRSessionLocal"
+              id="HRSessionLocalIterator"/>
+    <accessorIterator MasterBinding="HRSessionLocalIterator"
+                      Binds="employeesFindAll" RangeSize="25"
+                      DataControl="HRSessionLocal"
+                      BeanClass="nl.amis.model.hr.entities.Employees"
+                      id="employeesFindAllIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRSessionLocal"
+              id="HRSessionLocalIterator1"/>
+    <accessorIterator MasterBinding="HRSessionLocalIterator1"
+                      Binds="departmentsFindAll" RangeSize="10"
+                      DataControl="HRSessionLocal"
+                      BeanClass="nl.amis.model.hr.entities.Departments"
+                      id="departmentsFindAllIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRSessionLocal"
+              id="HRSessionLocalIterator2"/>
+    <accessorIterator MasterBinding="HRSessionLocalIterator2"
+                      Binds="locationsFindAll" RangeSize="-1"
+                      DataControl="HRSessionLocal"
+                      BeanClass="nl.amis.model.hr.entities.Locations"
+                      id="locationsFindAllIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="employeesFindAllIterator" id="employeesFindAll">
+      <nodeDefinition DefName="nl.amis.model.hr.entities.Employees"
+                      Name="employeesFindAll0">
+        <AttrNames>
+          <Item Value="employeeId"/>
+          <Item Value="firstName"/>
+          <Item Value="hireDate"/>
+          <Item Value="lastName"/>
+          <Item Value="departmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="departmentsFindAllIterator" id="departmentsFindAll">
+      <nodeDefinition DefName="nl.amis.model.hr.entities.Departments"
+                      Name="departmentsFindAll0">
+        <AttrNames>
+          <Item Value="departmentId"/>
+          <Item Value="departmentName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="locationsFindAllIterator" id="locationsFindAll">
+      <nodeDefinition DefName="nl.amis.model.hr.entities.Locations"
+                      Name="locationsFindAll0">
+        <AttrNames>
+          <Item Value="city"/>
+          <Item Value="countryId"/>
+          <Item Value="locationId"/>
+          <Item Value="postalCode"/>
+          <Item Value="stateProvince"/>
+          <Item Value="streetAddress"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="employeesFindAllIterator" id="departmentId">
+      <AttrNames>
+        <Item Value="departmentId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

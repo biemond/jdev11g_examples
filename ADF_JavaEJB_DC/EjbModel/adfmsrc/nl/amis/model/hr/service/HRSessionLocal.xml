@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.59.23"
+          id="HRSessionLocal" Package="nl.amis.model.hr.service"
+          BeanClass="nl.amis.model.hr.service.HRSessionLocal"
+          isJavaBased="true">
+  <AccessorAttribute id="departmentsFindAll" IsCollection="true"
+                     BeanClass="nl.amis.model.hr.entities.Departments"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="employeesFindAll" IsCollection="true"
+                     BeanClass="nl.amis.model.hr.entities.Employees"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="locationsFindAll" IsCollection="true"
+                     BeanClass="nl.amis.model.hr.entities.Locations"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="false"
+                  Type="nl.amis.model.hr.entities.Departments"
+                  BeanClass="nl.amis.model.hr.entities.Departments"
+                  id="persistDepartments" ReturnNodeName="Departments">
+    <ParameterInfo id="departments" Type="nl.amis.model.hr.entities.Departments"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false"
+                  Type="nl.amis.model.hr.entities.Departments"
+                  BeanClass="nl.amis.model.hr.entities.Departments"
+                  id="mergeDepartments" ReturnNodeName="Departments">
+    <ParameterInfo id="departments" Type="nl.amis.model.hr.entities.Departments"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeDepartments"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="departments" Type="nl.amis.model.hr.entities.Departments"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false"
+                  Type="nl.amis.model.hr.entities.Employees"
+                  BeanClass="nl.amis.model.hr.entities.Employees"
+                  id="persistEmployees" ReturnNodeName="Employees">
+    <ParameterInfo id="employees" Type="nl.amis.model.hr.entities.Employees"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false"
+                  Type="nl.amis.model.hr.entities.Employees"
+                  BeanClass="nl.amis.model.hr.entities.Employees"
+                  id="mergeEmployees" ReturnNodeName="Employees">
+    <ParameterInfo id="employees" Type="nl.amis.model.hr.entities.Employees"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeEmployees"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="employees" Type="nl.amis.model.hr.entities.Employees"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="java.util.List" id="queryByJpql"
+                  ReturnNodeName="returnValue"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="jpql" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false"
+                  Type="nl.amis.model.hr.entities.Locations"
+                  BeanClass="nl.amis.model.hr.entities.Locations"
+                  id="persistLocations" ReturnNodeName="Locations">
+    <ParameterInfo id="locations" Type="nl.amis.model.hr.entities.Locations"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false"
+                  Type="nl.amis.model.hr.entities.Locations"
+                  BeanClass="nl.amis.model.hr.entities.Locations"
+                  id="mergeLocations" ReturnNodeName="Locations">
+    <ParameterInfo id="locations" Type="nl.amis.model.hr.entities.Locations"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeLocations"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="locations" Type="nl.amis.model.hr.entities.Locations"
+                   isStructured="true"/>
+  </MethodAccessor>
+</JavaBean>

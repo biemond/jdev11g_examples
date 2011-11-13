@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <!-- id="af_one_column_stretched"   -->
+              <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.employeesFindAll.collectionModel}"
+                          var="row"
+                          rows="#{bindings.employeesFindAll.rangeSize}"
+                          emptyText="#{bindings.employeesFindAll.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.employeesFindAll.rangeSize}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.employeesFindAll.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.employeesFindAll.collectionModel.makeCurrent}"
+                          rowSelection="single" id="t1">
+                  <af:column sortProperty="employeeId" sortable="true"
+                             headerText="#{bindings.employeesFindAll.hints.employeeId.label}"
+                             id="c2">
+                    <af:inputText value="#{row.bindings.employeeId.inputValue}"
+                                  label="#{bindings.employeesFindAll.hints.employeeId.label}"
+                                  required="#{bindings.employeesFindAll.hints.employeeId.mandatory}"
+                                  columns="#{bindings.employeesFindAll.hints.employeeId.displayWidth}"
+                                  maximumLength="#{bindings.employeesFindAll.hints.employeeId.precision}"
+                                  shortDesc="#{bindings.employeesFindAll.hints.employeeId.tooltip}"
+                                  id="it1">
+                      <f:validator binding="#{row.bindings.employeeId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.employeesFindAll.hints.employeeId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="firstName" sortable="true"
+                             headerText="#{bindings.employeesFindAll.hints.firstName.label}"
+                             id="c1">
+                    <af:inputText value="#{row.bindings.firstName.inputValue}"
+                                  label="#{bindings.employeesFindAll.hints.firstName.label}"
+                                  required="#{bindings.employeesFindAll.hints.firstName.mandatory}"
+                                  columns="#{bindings.employeesFindAll.hints.firstName.displayWidth}"
+                                  maximumLength="#{bindings.employeesFindAll.hints.firstName.precision}"
+                                  shortDesc="#{bindings.employeesFindAll.hints.firstName.tooltip}"
+                                  id="it4">
+                      <f:validator binding="#{row.bindings.firstName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="hireDate" sortable="true"
+                             headerText="#{bindings.employeesFindAll.hints.hireDate.label}"
+                             id="c5">
+                    <af:inputDate value="#{row.bindings.hireDate.inputValue}"
+                                  label="#{bindings.employeesFindAll.hints.hireDate.label}"
+                                  required="#{bindings.employeesFindAll.hints.hireDate.mandatory}"
+                                  shortDesc="#{bindings.employeesFindAll.hints.hireDate.tooltip}"
+                                  id="id1">
+                      <f:validator binding="#{row.bindings.hireDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.employeesFindAll.hints.hireDate.format}"/>
+                    </af:inputDate>
+                  </af:column>
+                  <af:column sortProperty="lastName" sortable="true"
+                             headerText="#{bindings.employeesFindAll.hints.lastName.label}"
+                             id="c4">
+                    <af:inputText value="#{row.bindings.lastName.inputValue}"
+                                  label="#{bindings.employeesFindAll.hints.lastName.label}"
+                                  required="#{bindings.employeesFindAll.hints.lastName.mandatory}"
+                                  columns="#{bindings.employeesFindAll.hints.lastName.displayWidth}"
+                                  maximumLength="#{bindings.employeesFindAll.hints.lastName.precision}"
+                                  shortDesc="#{bindings.employeesFindAll.hints.lastName.tooltip}"
+                                  id="it2">
+                      <f:validator binding="#{row.bindings.lastName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="departmentId" sortable="true"
+                             headerText="#{bindings.employeesFindAll.hints.departmentId.label}"
+                             id="c3">
+
+                  <af:selectOneChoice value="#{row.bindings.departmentId.inputValue}"
+                                      label="#{row.bindings.departmentId.label}"
+                                      required="#{bindings.employeesFindAll.hints.departmentId.mandatory}"
+                                      shortDesc="#{bindings.employeesFindAll.hints.departmentId.tooltip}"
+                                      id="soc1" partialTriggers="it30">
+                   <af:forEach items="#{bindings.departmentsFindAll.rangeSet}"
+                               var="dep">                   
+                    <f:selectItem id="si1"
+                                  itemLabel="#{dep.departmentId} #{dep.departmentName}"
+                                  itemValue="#{dep.departmentId}"/>
+                   </af:forEach>                
+                  </af:selectOneChoice>
+
+
+                  </af:column>
+
+                  <af:column sortProperty="departmentId" sortable="true"
+                             headerText="#{bindings.employeesFindAll.hints.departmentId.label}"
+                             id="c6">
+
+
+              <af:inputListOfValues model="#{pageFlowScope.departmentLOV.departmentLovModel}"
+                                    id="it30"
+                                    label="Department Arval"
+                                    value="#{row.departmentId}"
+                                    converter="#{pageFlowScope.departmentLOV.departmentLovModel.converter}"
+                                    validator="#{pageFlowScope.departmentLOV.departmentLovModel.validate}"
+                                    popupTitle="Department Search"
+                                    autoSubmit="true"
+                                    required="true" autoTab="true"/>
+
+
+                  </af:column>
+
+                </af:table>
+              </af:panelCollection>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.59.23" id="employeeFormPageDef"
+                Package="nl.amis.adf.dc.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRSessionLocal"
+              id="HRSessionLocalIterator" ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="HRSessionLocalIterator"
+                      Binds="employeesFindAll" RangeSize="25"
+                      DataControl="HRSessionLocal"
+                      BeanClass="nl.amis.model.hr.entities.Employees"
+                      id="employeesFindAllIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRSessionLocal"
+              id="HRSessionLocalIterator1"/>
+    <accessorIterator MasterBinding="HRSessionLocalIterator1"
+                      Binds="departmentsFindAll" RangeSize="-1"
+                      DataControl="HRSessionLocal"
+                      BeanClass="nl.amis.model.hr.entities.Departments"
+                      id="departmentsFindAllIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HRSessionLocal"
+              id="HRSessionLocalIterator2"/>
+    <accessorIterator MasterBinding="HRSessionLocalIterator2"
+                      Binds="locationsFindAll" RangeSize="-1"
+                      DataControl="HRSessionLocal"
+                      BeanClass="nl.amis.model.hr.entities.Locations"
+                      id="locationsFindAllIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="employeesFindAllIterator" id="employeeId">
+      <AttrNames>
+        <Item Value="employeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="employeesFindAllIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="employeesFindAllIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="employeesFindAllIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="employeesFindAllIterator" id="departmentId">
+      <AttrNames>
+        <Item Value="departmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="employeesFindAllIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="employeesFindAllIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="employeesFindAllIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="employeesFindAllIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <list IterBinding="employeesFindAllIterator" id="departmentId1"
+          DTSupportsMRU="true" StaticList="false"
+          ListIter="departmentsFindAllIterator">
+      <AttrNames>
+        <Item Value="departmentId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="departmentId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="departmentId"/>
+        <Item Value="departmentName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="departmentsFindAllIterator" id="departmentsFindAll">
+      <nodeDefinition DefName="nl.amis.model.hr.entities.Departments"
+                      Name="departmentsFindAll0">
+        <AttrNames>
+          <Item Value="departmentId"/>
+          <Item Value="departmentName"/>
+          <Item Value="locationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="locationsFindAllIterator" id="locationsFindAll">
+      <nodeDefinition DefName="nl.amis.model.hr.entities.Locations"
+                      Name="locationsFindAll0">
+        <AttrNames>
+          <Item Value="locationId"/>
+          <Item Value="city"/>
+          <Item Value="countryId"/>
+          <Item Value="postalCode"/>
+          <Item Value="stateProvince"/>
+          <Item Value="streetAddress"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

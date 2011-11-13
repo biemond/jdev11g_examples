@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="employeePage">
+    <page>/pages/employee.jspx</page>
+  </view>
+  <view id="employeeFormPage">
+    <page>/pages/employeeForm.jspx</page>
+  </view>
+  <managed-bean id="__4">
+    <managed-bean-name id="__2">departmentLOV</managed-bean-name>
+    <managed-bean-class id="__3">nl.amis.adf.dc.view.bean.DepartmentLOVBean</managed-bean-class>
+    <managed-bean-scope id="__1">pageFlow</managed-bean-scope>
+  </managed-bean>
+    <managed-bean id="__14">
+      <managed-bean-name id="__17">departmentLOV2</managed-bean-name>
+      <managed-bean-class id="__15">soadev.ext.adf.query.QueryLOV</managed-bean-class>
+      <managed-bean-scope id="__16">pageFlow</managed-bean-scope>
+    </managed-bean>
+</adfc-config>

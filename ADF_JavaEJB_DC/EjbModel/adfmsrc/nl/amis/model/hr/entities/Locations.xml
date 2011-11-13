@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.59.23"
+          id="Locations" Package="nl.amis.model.hr.entities"
+          BeanClass="nl.amis.model.hr.entities.Locations" isJavaBased="true">
+  <Attribute Name="city" Type="java.lang.String"/>
+  <Attribute Name="countryId" Type="java.lang.String"/>
+  <Attribute Name="locationId" PrimaryKey="true" Type="java.lang.Long"/>
+  <Attribute Name="postalCode" Type="java.lang.String"/>
+  <Attribute Name="stateProvince" Type="java.lang.String"/>
+  <Attribute Name="streetAddress" Type="java.lang.String"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="nl.amis.model.hr.entities.Locations"
+                     BeanClass="nl.amis.model.hr.entities.Locations"
+                     id="Locations"/>
+</JavaBean>

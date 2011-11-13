@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.59.23"
+          id="Employees" Package="nl.amis.model.hr.entities"
+          BeanClass="nl.amis.model.hr.entities.Employees" isJavaBased="true">
+  <Attribute Name="commissionPct" Type="java.lang.Double"/>
+  <Attribute Name="email" Type="java.lang.String"/>
+  <Attribute Name="employeeId" PrimaryKey="true" Type="java.lang.Long"/>
+  <Attribute Name="firstName" Type="java.lang.String"/>
+  <Attribute Name="hireDate" Type="java.sql.Timestamp"/>
+  <Attribute Name="jobId" Type="java.lang.String"/>
+  <Attribute Name="lastName" Type="java.lang.String"/>
+  <Attribute Name="phoneNumber" Type="java.lang.String"/>
+  <Attribute Name="salary" Type="java.lang.Double"/>
+  <Attribute Name="departmentId" Type="java.lang.Long"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="nl.amis.model.hr.entities.Employees"
+                     BeanClass="nl.amis.model.hr.entities.Employees"
+                     id="Employees"/>
+</JavaBean>
