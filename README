@@ -1,4 +1,23 @@
 My Oracle JDeveloper examples
+
 ADFSecurity, where I use ADF Security combined with the idm framework, retrieve ldap attributes
-AsyncJAX-WS, Async jax-ws service   
+
+AsyncJAX-WS, Asynchronous jax-ws service   
+
 ADF_JavaEJB_DC, example where I use Rich faces listofvalues based on a EJB and other handy stuff with EJB
+
+EJB_WS , generate a WS on top of an EJB
+
+ITunesRestClient call a itunes rest service which return json with jersey and gson 
+marshalled to java. And an ADF search panel around this Itunes service
+
+JmsClients, jms clients for WebLogic and JBoss 7.1
+
+PLSQLWrapper, java entities passed on to PLSQL collection and types
+this is done for bulk update and insert. it uses eclipselink , plsql packages , oracle type, plsql collections
+
+SoapOverJMS, with jax-rpc send soap messages over jms
+
+WlsSchedular , commonj timer for weblogic server or cluster
+
+WlsSpring , SCA with weblogic

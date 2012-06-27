@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="index">
+    <page>/index.jspx</page>
+  </view>
+  <managed-bean id="__4">
+    <managed-bean-name id="__3">Search</managed-bean-name>
+    <managed-bean-class id="__2">nl.amis.view.beans.SearchBean</managed-bean-class>
+    <managed-bean-scope id="__1">view</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

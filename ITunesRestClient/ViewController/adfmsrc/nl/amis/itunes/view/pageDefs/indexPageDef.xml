@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="indexPageDef"
+                Package="nl.amis.itunes.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="searchITunes.result" DataControl="ITunesClient"
+                    RangeSize="-1"
+                    BeanClass="nl.amis.rest.model.entities.ITunesResult"
+                    id="searchITunesIterator" Refresh="ifNeeded"
+                    ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="searchITunesIterator" Binds="records"
+                      RangeSize="25" DataControl="ITunesClient"
+                      BeanClass="nl.amis.rest.model.entities.Record"
+                      id="recordsIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <methodAction id="searchITunes" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="searchITunes"
+                  IsViewObjectMethod="false" DataControl="ITunesClient"
+                  InstanceName="ITunesClient.dataProvider"
+                  ReturnName="data.ITunesClient.methodResults.searchITunes_ITunesClient_dataProvider_searchITunes_result">
+      <NamedData NDName="search" NDValue="#{viewScope.Search.searchString}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="searchITunesIterator" id="resultCount"
+                     ChangeEventPolicy="ppr">
+      <AttrNames>
+        <Item Value="resultCount"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="recordsIterator" id="records">
+      <nodeDefinition DefName="nl.amis.rest.model.entities.Record"
+                      Name="records0">
+        <AttrNames>
+          <Item Value="itemName"/>
+          <Item Value="itemParentName"/>
+          <Item Value="artistName"/>
+          <Item Value="wrapperType"/>
+          <Item Value="mediaType"/>
+          <Item Value="kind"/>
+          <Item Value="itemParentCensoredName"/>
+          <Item Value="itemCensoredName"/>
+          <Item Value="artistLinkUrl"/>
+          <Item Value="artworkUrl60"/>
+          <Item Value="artworkUrl100"/>
+          <Item Value="country"/>
+          <Item Value="currency"/>
+          <Item Value="discCount"/>
+          <Item Value="discNumber"/>
+          <Item Value="itemExplicitness"/>
+          <Item Value="itemLinkUrl"/>
+          <Item Value="itemPrice"/>
+          <Item Value="itemParentExplicitness"/>
+          <Item Value="itemParentLinkUrl"/>
+          <Item Value="itemParentPrice"/>
+          <Item Value="previewUrl"/>
+          <Item Value="primaryGenreName"/>
+          <Item Value="trackCount"/>
+          <Item Value="trackNumber"/>
+          <Item Value="trackTime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

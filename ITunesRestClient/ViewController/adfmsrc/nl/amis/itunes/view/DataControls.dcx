@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.61.92" id="DataControls"
+                    Package="nl.amis.itunes.view">
+  <AdapterDataControl id="ITunesClient"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="nl.amis.rest.model.ITunesClient"
+                      BeanClass="nl.amis.rest.model.ITunesClient"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="nl.amis.rest.model.entities.Record"/>
+      <TypeInfo FullName="nl.amis.rest.model.entities.ITunesResult"/>
+      <TypeInfo FullName="nl.amis.rest.model.ITunesClient"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="nl.amis.rest.model.ITunesClient"
+                       xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

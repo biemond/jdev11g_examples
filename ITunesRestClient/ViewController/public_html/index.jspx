@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <f:loadBundle basename="nl.amis.view.application" var="msg" />
+    <af:document id="d1" title="#{msg.appTitle}">
+      <af:messages id="m1"/>
+      <af:form id="f1" defaultCommand="cb1">
+        <af:panelStretchLayout id="psl00" topHeight="109px">
+          <f:facet name="center">
+            <af:panelHeader text="#{msg.appTitle}" id="ph1">
+              <af:panelStretchLayout id="psl1" topHeight="50px"
+                                     endWidth="200px">
+                <f:facet name="center">
+                  <af:table value="#{bindings.records.collectionModel}"
+                            var="row" rows="#{bindings.records.rangeSize}"
+                            emptyText="#{bindings.records.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.records.rangeSize}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.records.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.records.collectionModel.makeCurrent}"
+                            rowSelection="single" id="t1">
+                    <af:column sortProperty="itemName" sortable="false"
+                               headerText="#{msg.name}"
+                               id="c17" width="200">
+                      <af:outputText value="#{row.itemName}" id="ot23"/>
+                    </af:column>
+                    <af:column sortProperty="itemParentName" sortable="false"
+                               headerText="#{msg.album}"
+                               id="c19" width="150">
+                      <af:outputText value="#{row.itemParentName}" id="ot21"/>
+                    </af:column>
+                    <af:column sortProperty="artistName" sortable="false"
+                               headerText="#{msg.artist}"
+                               id="c6" width="150">
+                      <af:outputText value="#{row.artistName}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="wrapperType" sortable="false"
+                               headerText="#{bindings.records.hints.wrapperType.label}"
+                               id="c24" rendered="false">
+                      <af:outputText value="#{row.wrapperType}" id="ot1"/>
+                    </af:column>
+                    <af:column sortProperty="mediaType" sortable="false"
+                               headerText="#{bindings.records.hints.mediaType.label}"
+                               id="c3">
+                      <af:outputText value="#{row.mediaType}" id="ot8"/>
+                    </af:column>
+                    <af:column sortProperty="kind" sortable="false"
+                               headerText="#{bindings.records.hints.kind.label}"
+                               id="c11" rendered="false">
+                      <af:outputText value="#{row.kind}" id="ot19"/>
+                    </af:column>
+                    <af:column sortProperty="itemParentCensoredName"
+                               sortable="false"
+                               headerText="#{bindings.records.hints.itemParentCensoredName.label}"
+                               id="c25" rendered="false">
+                      <af:outputText value="#{row.itemParentCensoredName}"
+                                     id="ot15"/>
+                    </af:column>
+                    <af:column sortProperty="itemCensoredName" sortable="false"
+                               headerText="#{bindings.records.hints.itemCensoredName.label}"
+                               id="c20" rendered="false">
+                      <af:outputText value="#{row.itemCensoredName}" id="ot9"/>
+                    </af:column>
+                    <af:column sortProperty="artistLinkUrl" sortable="false"
+                               headerText="#{bindings.records.hints.artistLinkUrl.label}"
+                               id="c12" rendered="false">
+                      <af:outputText value="#{row.artistLinkUrl}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="artworkUrl60" sortable="false"
+                               headerText="#{bindings.records.hints.artworkUrl60.label}"
+                               id="c9" rendered="false">
+                      <af:outputText value="#{row.artworkUrl60}" id="ot24"/>
+                    </af:column>
+                    <af:column sortProperty="artworkUrl100" sortable="false"
+                               headerText="#{bindings.records.hints.artworkUrl100.label}"
+                               id="c4" rendered="false" width="200">
+                      <af:outputText value="#{row.artworkUrl100}" id="ot11"/>
+                    </af:column>
+                    <af:column sortProperty="itemLinkUrl" sortable="false"
+                               headerText="#{bindings.records.hints.itemLinkUrl.label}"
+                               id="c10" rendered="false">
+                      <af:outputText value="#{row.itemLinkUrl}" id="ot13"/>
+                    </af:column>
+                    <af:column sortProperty="previewUrl" sortable="false"
+                               headerText="#{bindings.records.hints.previewUrl.label}"
+                               id="c21" rendered="false">
+                      <af:outputText value="#{row.previewUrl}" id="ot25"/>
+                    </af:column>
+                    <af:column sortProperty="primaryGenreName" sortable="false"
+                               headerText="#{bindings.records.hints.primaryGenreName.label}"
+                               id="c22">
+                      <af:outputText value="#{row.primaryGenreName}" id="ot7"/>
+                    </af:column>
+                    <af:column sortProperty="trackCount" sortable="false"
+                               headerText="#{bindings.records.hints.trackCount.label}"
+                               id="c23">
+                      <af:outputText value="#{row.trackCount}" id="ot20">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.records.hints.trackCount.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="trackNumber" sortable="false"
+                               headerText="#{bindings.records.hints.trackNumber.label}"
+                               id="c2">
+                      <af:outputText value="#{row.trackNumber}" id="ot18">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.records.hints.trackNumber.format}"/>
+                      </af:outputText>
+                    </af:column>
+                  </af:table>
+                  <!-- id="af_one_column_stretched"   -->
+                </f:facet>
+                <f:facet name="top">
+                  <af:panelStretchLayout id="psl2" startWidth="400px"
+                                         endWidth="150px">
+                    <f:facet name="start">
+                      <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:inputText id="it1"
+                                      value="#{viewScope.Search.searchString}"
+                                      autoSubmit="true" columns="40"/>
+                        <af:commandButton actionListener="#{viewScope.Search.searchAction}"
+                                          text="search"
+                                          disabled="#{!bindings.searchITunes.enabled}"
+                                          id="cb1"/>
+                      </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="end">
+                      <af:outputText value="Found #{bindings.resultCount.inputValue} matching items"
+                                     id="of1"/>
+                    </f:facet>
+                  </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="end">
+                  <af:panelGroupLayout layout="vertical"
+                                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                       id="pgl2">
+                    <af:image source="#{bindings.recordsIterator.currentRow.dataProvider.artworkUrl100}"
+                              id="i1" partialTriggers="t1"
+                              inlineStyle="width:200px; height:150px;"/>
+                    <af:spacer height="10" width="10"/>
+                    <af:goButton text="#{msg.preview}" id="gb1"
+                                 targetFrame="_blank" partialTriggers="t1"
+                                 destination="#{bindings.recordsIterator.currentRow.dataProvider.previewUrl}"/>
+                  </af:panelGroupLayout>
+                </f:facet>
+              </af:panelStretchLayout>
+            </af:panelHeader>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
