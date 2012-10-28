@@ -4,13 +4,18 @@
       <value n="adrs-instance-binding" v="DefaultServer"/>
    </hash>
    <value n="application-package-prefix" v="nl.amis.rest.hr"/>
+   <url n="application-source-directory" path="src/"/>
    <value n="appTemplateId" v="#genericApplicationTemplate"/>
    <hash n="component-versions">
       <value n="oracle.adf.share.dt.migration.jps.JaznCredStoreMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.adfdt.controller.adfc.source.migration.SavePointDataSourceForWLSMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdtinternal.model.ide.security.extension.AdfSecurityMigrator" v="11.1.1.1.0.13"/>
+      <value n="oracle.adfdtinternal.model.ide.security.wizard.AdfSecurityMigrator" v="11.1.1.1.0.13"/>
       <value n="oracle.ide.model.Project" v="11.1.1.1.0;11.1.2.0.0"/>
       <value n="oracle.jbo.dt.jdevx.deployment.JbdProjectMigrator" v="11.1.2.0.0"/>
       <value n="oracle.jdevimpl.appresources.ApplicationSrcDirMigrator" v="11.1.2.0.0"/>
+      <value n="oracle.jdevimpl.deploy.ear.OarMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.deploy.mar.MarMigratorHelper" v="11.1.1.1.0"/>
       <value n="oracle.jdevimpl.xml.oc4j.jps.JpsConfigMigratorHelper" v="11.1.1.1.0.1"/>
       <value n="oracle.jdevimpl.xml.wl.WeblogicMigratorHelper" v="11.1.1.1.0"/>
       <value n="oracle.mds.internal.dt.deploy.base.MarMigratorHelper" v="11.1.1.1.0"/>
@@ -26,4 +31,10 @@
    <list n="listOfChildren">
       <hash><url n="URL" path="HRServices/HRServices.jpr"/></hash>
    </list>
+   <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
+      <value n="Security-Deployment-Migrate-Users-And-Groups-Key" v="false"/>
+      <value n="Security-Deployment-Overwrite-Application-Policies-Key" v="false"/>
+      <value n="Security-Deployment-Overwrite-Credentials-Key" v="false"/>
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
+   </hash>
 </jws:workspace>

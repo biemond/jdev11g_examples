@@ -9,16 +9,19 @@
          <StringRefAddr addrType="subtype">
             <Contents>oraJDBC</Contents>
          </StringRefAddr>
-         <StringRefAddr addrType="user">
-            <Contents>hr</Contents>
-         </StringRefAddr>
-         <StringRefAddr addrType="hostname">
-            <Contents>192.168.80.141</Contents>
-         </StringRefAddr>
          <StringRefAddr addrType="port">
             <Contents>1521</Contents>
          </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>localhost</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>hr</Contents>
+         </StringRefAddr>
          <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
          <StringRefAddr addrType="oraDriverType">
             <Contents>thin</Contents>
          </StringRefAddr>

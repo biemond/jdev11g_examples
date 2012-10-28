@@ -41,7 +41,7 @@ public class HRClient {
         System.out.println("lastName = " + employees.getLastName());
         System.out.println("phoneNumber = " + employees.getPhoneNumber());
         System.out.println("salary = " + employees.getSalary());
-        System.out.println("manager = " + employees.getManager());
+
     }
 
     private static void printDepartments(Departments departments) {
@@ -64,7 +64,7 @@ public class HRClient {
         Hashtable env = new Hashtable();
         // WebLogic Server 10.x connection details
         env.put( Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory" );
-        env.put(Context.PROVIDER_URL, "t3://localhost:7101");
+        env.put(Context.PROVIDER_URL, "t3://localhost:7001");
         return new InitialContext( env );
     }
 }
