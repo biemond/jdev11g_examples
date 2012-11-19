@@ -8,7 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import nl.amis.jpa.tuning.model.entities.Departments;
-import nl.amis.jpa.tuning.model.entities.Employees;
 
 import org.eclipse.persistence.config.QueryHints;
 

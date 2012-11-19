@@ -63,6 +63,21 @@
    <hash n="ejbModuleContainer">
       <value n="cmpProvider" v="EJB 3.0"/>
       <value n="dbConnection" v="hr"/>
+      <hash n="ejbDiagramToPuMap">
+         <hash n="model">
+            <hash n="nl">
+               <hash n="amis">
+                  <hash n="jpa">
+                     <hash n="tuning">
+                        <hash n="model">
+                           <value n="HR Diagram.ejb_diagram" v="Model"/>
+                        </hash>
+                     </hash>
+                  </hash>
+               </hash>
+            </hash>
+         </hash>
+      </hash>
       <value n="ejbMetaDataPrefs" v="PREFASANNON"/>
       <value n="ejbVersion" v="3.0"/>
    </hash>

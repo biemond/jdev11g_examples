@@ -102,8 +102,6 @@ public class Departments implements Serializable {
         this.locationId = locationId;
     }
 
-
-
     public List<Employees> getEmployeesList() {
         return employeesList;
     }
