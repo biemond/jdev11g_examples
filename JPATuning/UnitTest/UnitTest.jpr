@@ -61,13 +61,7 @@
    </list>
    <value n="defaultPackage" v="nl.amis.jpa.tuning.tests"/>
    <hash n="oracle.ide.model.DependencyConfiguration">
-      <list n="dependencyList">
-         <hash>
-            <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
-            <url n="sourceOwnerURL" path="../JPATuning.jws"/>
-            <url n="sourceURL" path="../Model/Model.jpr"/>
-         </hash>
-      </list>
+      <list n="dependencyList"/>
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
@@ -86,6 +80,8 @@
          <string v="-Xlint:-serial"/>
          <string v="-Xlint:-unchecked"/>
       </list>
+      <value n="source" v="Default"/>
+      <value n="target" v="Default"/>
       <value n="webIANAEncoding" v="windows-1252"/>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -96,6 +92,7 @@
       <hash n="runConfigurationDefinitions">
          <hash n="Default">
             <value n="custom" v="false"/>
+            <value n="javaOptions" v=""/>
             <value n="name" v="Default"/>
          </hash>
       </hash>
@@ -109,10 +106,65 @@
             <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Model_hr_weaving.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Eclipselink.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Javax.persistence_2.0.4.v201112161009.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
+      <hash n="internalDefinitions">
+         <list n="libraryDefinitions">
+            <hash>
+               <list n="classPath">
+                  <url path="../Model/build/model_hr_weaving.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Model_hr_weaving.jar"/>
+               <value n="id" v="Model_hr_weaving.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../lib/eclipselink.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Eclipselink.jar"/>
+               <value n="id" v="Eclipselink.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../lib/javax.persistence_2.0.4.v201112161009.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Javax.persistence_2.0.4.v201112161009.jar"/>
+               <value n="id" v="Javax.persistence_2.0.4.v201112161009.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+         </list>
+      </hash>
       <list n="libraryReferences">
          <hash>
             <value n="id" v="Oracle JDBC"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Model_hr_weaving.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Eclipselink.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Javax.persistence_2.0.4.v201112161009.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

@@ -57,9 +57,6 @@ public class DepartmentTests {
             System.out.println("end ------------  department5");   
             em.clear();
 
-
-
-
         } catch (RuntimeException e) {
            e.printStackTrace();
         } finally {

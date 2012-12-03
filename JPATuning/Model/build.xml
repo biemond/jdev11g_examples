@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project default="package">
+
+    <property environment="env"/>
+    <property file="build.properties"/>
+
+
+    <path id="eclipselink.path">
+      <pathelement path="../lib/eclipselink.jar" />
+      <pathelement path="../lib/eclipselink-jpa-modelgen_2.4.1.v20121003-ad44345.jar" />
+      <pathelement path="../lib/javax.persistence_2.0.4.v201112161009.jar" />
+    </path>
+
+    <taskdef name="weave" 
+             classpathref="eclipselink.path"
+             classname="org.eclipse.persistence.tools.weaving.jpa.StaticWeaveAntTask"/>
+
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean" description="Clean the project">
+        <echo message="delete builddir ${build.dir}"/>
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: init
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init" depends="clean">
+        <echo message="make builddir ${build.dir}"/>
+        <tstamp>
+            <format property="build.date" pattern="yyyy-MM-dd HH:mm:ss" />
+        </tstamp>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.dir}/classes"/>
+        <mkdir dir="${build.dir}/docs" />
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: compile , JPA Metadata Processing
+         - - - - - - - - - - - - - - - - - -->
+    <target name="compile" description="Compile Java source files" depends="init">
+        <javac  destdir="${build.dir}/classes" 
+                classpathref="eclipselink.path"
+                debug="${javac.debug}" 
+                nowarn="${javac.nowarn}"
+                deprecation="${javac.deprecation}" 
+                encoding="Cp1252"
+                includeantruntime="false" 
+                source="1.6" 
+                target="1.6">
+            <src path="${src.dir}"/>
+            <compilerarg value="-Aeclipselink.persistencexml=${src.dir}/META-INF/persistence.xml"/>
+        </javac>
+    </target>
+
+    <!-- ================================= 
+          target: jar
+         ================================= -->
+    <target name="jar_without_weaving" description="Create JAR file" depends="compile">
+        <jar destfile="${build.dir}/model_hr.jar" basedir="${build.dir}/classes">
+            <fileset dir="${src.dir}">
+                <include name="META-INF/**" />
+            </fileset>
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Weblogic-Application-Version" value="1.0-b100"/>
+                <attribute name="Implementation-Version" value="1.0-b100" />
+                <attribute name="Built-Date" value="${build.date}" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="jar_interface" description="Create interface JAR file" depends="jar_without_weaving">
+        <jar destfile="${build.dir}/model_hr_interface.jar" 
+             basedir="${build.dir}/classes"
+             excludes="**/*Bean*.class">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Weblogic-Application-Version" value="1.0-b100"/>
+                <attribute name="Implementation-Version" value="1.0-b100" />
+                <attribute name="Built-Date" value="${build.date}" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="weaving" description="perform weaving" depends="jar_interface">
+        <weave source="${build.dir}/model_hr.jar" 
+               target="${build.dir}/model_hr_weaving.jar"
+               loglevel="FINEST">
+        </weave>
+    </target>
+
+    <target name="package" description="Create EAR file" depends="weaving">
+      <ear destfile="${build.dir}/model_hr.ear" appxml="config/META-INF/application.xml">
+        <fileset dir="${build.dir}" includes="model_hr_weaving.jar"/>
+        <manifest>
+                <attribute name="Extension-Name" value="model_hr" />
+                <attribute name="Specification-Version" value="1.0" />
+                <attribute name="Implementation-Title" value="model EJB"/>
+                <attribute name="Implementation-Version" value="1.0-b100" />
+                <attribute name="Implementation-Vendor" value="Amis, NL " />
+                 <attribute name="Weblogic-Application-Version" value="1.0-b100"/>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Built-Date" value="${build.date}" />
+        </manifest>
+      </ear>
+    </target>       
+
+
+</project>
