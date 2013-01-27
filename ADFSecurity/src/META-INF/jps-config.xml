@@ -1,4 +1,4 @@
-<?xml version = '1.0' encoding = 'Cp1252'?>
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <jpsConfig xmlns="http://xmlns.oracle.com/oracleas/schema/11/jps-config-11_1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.oracle.com/oracleas/schema/11/jps-config-11_1.xsd">
    <property value="doasprivileged" name="oracle.security.jps.jaas.mode"/>
    <propertySets/>
@@ -110,9 +110,9 @@
    </serviceInstances>
    <jpsContexts default="ADFSecurity">
       <jpsContext name="ADFSecurity">
+         <serviceInstanceRef ref="credstore"/>
          <serviceInstanceRef ref="krb5.loginmodule"/>
          <serviceInstanceRef ref="idstore.xml"/>
-         <serviceInstanceRef ref="credstore"/>
          <serviceInstanceRef ref="policystore.xml"/>
          <serviceInstanceRef ref="idstore.loginmodule"/>
       </jpsContext>

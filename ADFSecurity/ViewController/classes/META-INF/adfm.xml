@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<MetadataDirectory xmlns="http://xmlns.oracle.com/adfm/metainf"
-                   version="11.1.1.0.0">
-  <DataBindingRegistry path="nl/amis/adf/security/view/DataBindings.cpx"/>
-  <DataControlRegistry path="nl/amis/adf/security/view/DataControls.dcx"/>
-</MetadataDirectory>

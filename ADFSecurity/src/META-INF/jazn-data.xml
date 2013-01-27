@@ -166,7 +166,6 @@
               </principals>
             </grantee>
             <permissions>
-
               <permission>
                     <class>oracle.security.jps.service.credstore.CredentialAccessPermission</class>
                     <name>context=SYSTEM,mapName=JPS,keyName=AD_ldap</name>

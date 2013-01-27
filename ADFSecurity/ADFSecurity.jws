@@ -5,7 +5,7 @@
       <value n="deploy-timeout" v="0"/>
       <value n="runtime-application-name" v=""/>
    </hash>
-   <value n="application-package-prefix" v="nl.whitehorses.adf.security"/>
+   <value n="application-package-prefix" v="nl.amis.adf.security"/>
    <url n="application-source-directory" path="src/"/>
    <value n="appTemplateId" v="adfWebappApplicationTemplate"/>
    <hash n="component-versions">
@@ -83,5 +83,10 @@
          <string v="ADFSecurity_application1"/>
       </list>
       <value n="Security-Deployment-Migrate-Users-And-Groups-Key" v="false"/>
+   </hash>
+   <hash n="oracle.mds.internal.dt.ide.CustOptions">
+      <list n="customizationLibraries">
+         <hash/>
+      </list>
    </hash>
 </jws:workspace>

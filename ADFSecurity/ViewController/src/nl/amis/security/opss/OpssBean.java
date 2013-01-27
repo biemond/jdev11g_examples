@@ -1,5 +1,6 @@
 package nl.amis.security.opss;
 
+import java.util.Date;
 import java.util.Iterator;
 
 import javax.faces.application.FacesMessage;
@@ -11,6 +12,7 @@ import oracle.adf.share.security.SecurityContext;
 
 import oracle.security.idm.IMException;
 import oracle.security.idm.IdentityStore;
+import oracle.security.idm.ModProperty;
 import oracle.security.idm.Property;
 import oracle.security.idm.PropertySet;
 import oracle.security.idm.Role;
@@ -28,6 +30,37 @@ import oracle.security.jps.service.credstore.PasswordCredential;
 import oracle.security.jps.service.idstore.IdentityStoreService;
 
 public class OpssBean {
+
+    private JpsContext jpsCtx = null;
+    private IdentityStore idStore = null;
+    private UserProfile userProfile = null;
+
+    private String oldPassword = null;
+    private String newPassword = null;
+    
+    private String username = "";
+    private String roles = "";
+    private String attributes = "";
+
+    private String key = null;
+    private String map = null;
+
+    private String keyUsername = null;
+    private String keyPassword = null;
+
+    private String createRole = null;
+
+    private String createUser = null;
+    private String createUserPassword = null;
+    private String createUserRole = null;
+
+    private String searchUser = null;
+    private String searchUserResult = "";
+
+    private static final String ldapAccountExpiresAttribute = "ACCOUNTEXPIRES";
+    private static final String ldapLastLogonAttribute = "LASTLOGONTIMESTAMP";
+    private static final String ldapPwdLastSetAttribute = "PWDLASTSET";
+
     public OpssBean() {
 
         ADFContext adfCtx = ADFContext.getCurrent();
@@ -48,7 +81,7 @@ public class OpssBean {
 
             User user = idStore.searchUser(secCntx.getUserName());
             if (user != null) {
-                UserProfile userProfile = user.getUserProfile();
+                userProfile = user.getUserProfile();
                 PropertySet propSet = userProfile.getAllUserProperties();
 
                 Iterator it = propSet.getAll();
@@ -59,9 +92,19 @@ public class OpssBean {
                     Iterator it2 = prop.getValues().iterator();
                     while (it2.hasNext()) {
                         Object val = it2.next();
-                        this.attributes =
-                                this.attributes + " values: " + val.toString() +
-                                "\n";
+                        if ( prop.getName().equalsIgnoreCase(ldapAccountExpiresAttribute) ||
+                             prop.getName().equalsIgnoreCase(ldapLastLogonAttribute) ||
+                             prop.getName().equalsIgnoreCase(ldapPwdLastSetAttribute) ){
+                        
+                            long adTime = Long.parseLong(val.toString());
+                            long javaTime = adTime - 0x19db1ded53e8000L;
+                            javaTime /= 10000L;
+                            Date day = new Date(javaTime);
+                                          
+                            this.attributes = this.attributes + " values: " + day.toString() + "\n";
+                       } else {
+                              this.attributes = this.attributes + " values: " + val.toString() + "\n";
+                       }  
                     }
                 }
             }
@@ -71,6 +114,45 @@ public class OpssBean {
             e.printStackTrace();
         }
     }
+
+    public void changePassword(ActionEvent actionEvent) {
+        // Add event code here...
+        if ( oldPassword == null || oldPassword.equals("") ) {
+             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                      "Old password is empty", ""); 
+             FacesContext.getCurrentInstance().addMessage(null, msg);
+             return;
+           }
+        
+              if ( newPassword == null || newPassword.equals("") ) {
+                  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                      "New password is empty", ""); 
+                  FacesContext.getCurrentInstance().addMessage(null, msg);
+                  return;
+              }
+        
+              if ( userProfile != null ) {
+        
+                  try {
+                      char[] adEncodedPassword = oldPassword.toCharArray();
+                      char[] adEncodedPassword2 = newPassword.toCharArray();
+                     
+                      userProfile.setPassword(adEncodedPassword, adEncodedPassword2);
+                      FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+                                                          "Password has been changed", ""); 
+                      FacesContext.getCurrentInstance().addMessage(null, msg);  
+                  } catch (IMException e) {
+                      e.printStackTrace();
+                      FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                          e.getMessage(), ""); 
+                      FacesContext.getCurrentInstance().addMessage(null, msg);  
+                  }
+              } else {
+                  System.out.println("user is null");
+              }
+
+    }
+
 
 //  -Djps.auth.debug=true -Djps.auth.debug.verbose=true
 //
@@ -129,25 +211,35 @@ public class OpssBean {
           PropertySet propSet = new PropertySet();
 
           Property prop = new Property("samaccountname",this.createUser);
+  //        Property prop2 = new Property("userAccountControl",66048);
           propSet.put(prop);
-          
+  //        propSet.put(prop2);
            
           User newUser = idStore.getUserManager()
                 .createUser(this.createUser, 
                             this.createUserPassword.toCharArray(),
                             propSet);
-          SimpleSearchFilter filter =
-                    idStore.getSimpleSearchFilter(RoleProfile.NAME,
-                                                  SimpleSearchFilter.TYPE_EQUAL,
-                                                  this.createUserRole);
-          SearchParameters sp = new SearchParameters(filter,
-                                                     SearchParameters.SEARCH_ROLES_ONLY);
-          SearchResponse response = idStore.search(sp);
-          if (response.hasNext()) {
-            Role role = (Role)response.next();
-            idStore.getRoleManager().grantRole(role, newUser.getPrincipal());
+          if ( createUserRole != null  ) {
+              SimpleSearchFilter filter =
+                        idStore.getSimpleSearchFilter(RoleProfile.NAME,
+                                                      SimpleSearchFilter.TYPE_EQUAL,
+                                                      this.createUserRole);
+              SearchParameters sp = new SearchParameters(filter,
+                                                         SearchParameters.SEARCH_ROLES_ONLY);
+              SearchResponse response = idStore.search(sp);
+              if (response.hasNext()) {
+                Role role = (Role)response.next();
+                idStore.getRoleManager().grantRole(role, newUser.getPrincipal());
+              }
           }
-          FacesMessage fm = new FacesMessage("Succes");
+          ModProperty userAccountControl = 
+              new ModProperty("userAccountControl", 
+                              "66048",
+                              ModProperty.REPLACE );
+          
+          newUser.getUserProfile().setProperty(userAccountControl);
+          
+          FacesMessage fm = new FacesMessage("Success");
           fm.setSeverity(FacesMessage.SEVERITY_INFO);
           FacesContext context = FacesContext.getCurrentInstance();
           context.addMessage(null, fm);
@@ -186,28 +278,6 @@ public class OpssBean {
                 context.addMessage(null, fm);
          }
     }
-
-    private JpsContext jpsCtx = null;
-    private IdentityStore idStore = null;
-    
-    private String username = "";
-    private String roles = "";
-    private String attributes = "";
-
-    private String key = null;
-    private String map = null;
-
-    private String keyUsername = null;
-    private String keyPassword = null;
-
-    private String createRole = null;
-
-    private String createUser = null;
-    private String createUserPassword = null;
-    private String createUserRole = null;
-
-    private String searchUser = null;
-    private String searchUserResult = "";
 
 
     public void setUsername(String username) {
@@ -315,5 +385,21 @@ public class OpssBean {
         return searchUserResult;
     }
 
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
 
 }

@@ -19,6 +19,5 @@
     <page id="nl_whitehorses_adf_security_view_fragment1PageDef"
           path="nl.amis.adf.security.view.pageDefs.fragment1PageDef"/>
   </pageDefinitionUsages>
-  <dataControlUsages>
-  </dataControlUsages>
+  <dataControlUsages/>
 </Application>

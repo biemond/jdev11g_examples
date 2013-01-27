@@ -19,13 +19,27 @@
                </af:panelFormLayout>
             </af:panelHeader>
             <af:panelGroupLayout id="pgl2" layout="vertical">
-               <af:panelHeader text="Create Role" id="ph3">
+               <af:panelHeader text="Change Password" id="ph3">
                   <f:facet name="context">
-                     <af:commandButton text="Create" id="cb2"
-                                       actionListener="#{OpssBean.createRole}"/>
+                     <af:commandButton text="Change" id="cb2"
+                                       actionListener="#{OpssBean.changePassword}"/>
                   </f:facet>
                   <af:panelFormLayout id="pfl3">
-                     <af:inputText label="New Roles" id="it8"
+                     <af:inputText label="Old password" id="it8"
+                                   value="#{OpssBean.oldPassword}" columns="30"
+                                   autoSubmit="true"/>
+                     <af:inputText label="New password" id="it15"
+                                   value="#{OpssBean.newPassword}" columns="30"
+                                   autoSubmit="true"/>
+                  </af:panelFormLayout>
+               </af:panelHeader>
+               <af:panelHeader text="Create Role" id="ph6">
+                  <f:facet name="context">
+                     <af:commandButton text="Create" id="cb5"
+                                       actionListener="#{OpssBean.createRole}"/>
+                  </f:facet>
+                  <af:panelFormLayout id="pfl6">
+                     <af:inputText label="New Roles" id="it14"
                                    value="#{OpssBean.createRole}" columns="30"
                                    autoSubmit="true"/>
                   </af:panelFormLayout>
