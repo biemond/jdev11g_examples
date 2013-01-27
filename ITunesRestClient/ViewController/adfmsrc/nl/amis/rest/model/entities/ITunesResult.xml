@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="ITunesResult" Package="nl.amis.rest.model.entities"
+          BeanClass="nl.amis.rest.model.entities.ITunesResult"
+          isJavaBased="true">
+  <Attribute Name="resultCount" Type="java.lang.Integer"/>
+  <AccessorAttribute id="records" IsCollection="true"
+                     BeanClass="nl.amis.rest.model.entities.Record"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="nl.amis.rest.model.entities.ITunesResult"
+                     BeanClass="nl.amis.rest.model.entities.ITunesResult"
+                     id="ITunesResult"/>
+</JavaBean>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="Record" Package="nl.amis.rest.model.entities"
+          BeanClass="nl.amis.rest.model.entities.Record" isJavaBased="true">
+  <Attribute Name="wrapperType" Type="java.lang.String"/>
+  <Attribute Name="mediaType" Type="java.lang.String"/>
+  <Attribute Name="kind" Type="java.lang.String"/>
+  <Attribute Name="artistName" Type="java.lang.String"/>
+  <Attribute Name="itemParentName" Type="java.lang.String"/>
+  <Attribute Name="itemParentCensoredName" Type="java.lang.String"/>
+  <Attribute Name="itemCensoredName" Type="java.lang.String"/>
+  <Attribute Name="itemName" Type="java.lang.String"/>
+  <Attribute Name="artistLinkUrl" Type="java.lang.String"/>
+  <Attribute Name="artworkUrl60" Type="java.lang.String"/>
+  <Attribute Name="artworkUrl100" Type="java.lang.String"/>
+  <Attribute Name="country" Type="java.lang.String"/>
+  <Attribute Name="currency" Type="java.lang.String"/>
+  <Attribute Name="discCount" Type="java.lang.String"/>
+  <Attribute Name="discNumber" Type="java.lang.String"/>
+  <Attribute Name="itemExplicitness" Type="java.lang.String"/>
+  <Attribute Name="itemLinkUrl" Type="java.lang.String"/>
+  <Attribute Name="itemPrice" Type="java.lang.Double"/>
+  <Attribute Name="itemParentExplicitness" Type="java.lang.String"/>
+  <Attribute Name="itemParentLinkUrl" Type="java.lang.String"/>
+  <Attribute Name="itemParentPrice" Type="java.lang.Double"/>
+  <Attribute Name="previewUrl" Type="java.lang.String"/>
+  <Attribute Name="primaryGenreName" Type="java.lang.String"/>
+  <Attribute Name="trackCount" Type="java.lang.Integer"/>
+  <Attribute Name="trackNumber" Type="java.lang.Integer"/>
+  <Attribute Name="trackTime" Type="java.lang.Long"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="nl.amis.rest.model.entities.Record"
+                     BeanClass="nl.amis.rest.model.entities.Record"
+                     id="Record"/>
+</JavaBean>

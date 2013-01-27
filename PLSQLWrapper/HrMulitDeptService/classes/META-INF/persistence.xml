@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="2.0">
+  <persistence-unit name="HrMulitDeptService" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>nl.amis.jpa.entities.Departments</class>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.password" value="221CE6B0A87AC61AE68FF3A130F7F666"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+      <property name="javax.persistence.jdbc.user" value="hr"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.logging.thread" value="false"/>
+      <property name="eclipselink.logging.session" value="false"/>
+      <property name="eclipselink.target-database" value="Oracle11"/>
+    </properties>
+  </persistence-unit>
+</persistence>

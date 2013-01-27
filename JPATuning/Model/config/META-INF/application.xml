@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd" version="5" xmlns="http://java.sun.com/xml/ns/javaee">
+  <display-name>model_hr</display-name>
+  <module>
+    <ejb>model_hr_weaving.jar</ejb>
+  </module>
+</application>
